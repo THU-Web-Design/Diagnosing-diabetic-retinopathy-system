@@ -1,0 +1,255 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.Top{
+    position: relative;
+    height: 70px;
+    width: 100%;
+    background-color: rgb(200, 197, 193,1);
+    z-index: 3;
+}
+
+.Background{
+    position: relative;
+    height:100vh;
+    width: 100%;
+    background-color: rgb(231, 231, 231,1);
+}
+
+.Toptext {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+}
+
+.Topimage {
+    position: absolute;
+    top: 20px;
+    left: 25px; 
+    width: 25px; 
+    height: 25px;
+    background-size: 100% 100%;
+    cursor: pointer; /*變為手手*/
+}
+
+.Backgroundbuttom{
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    font-size: 18px;
+}
+
+.Leftbox {
+    width: 130px;
+    height:90vh;
+    background-color:  rgb(200, 197, 193,1);
+    position: absolute;
+    top: 55px;
+    left: 0;
+    padding-top: 30px;
+}
+
+.Leftbox a {
+    display: block; 
+}
+
+.Fileupload{
+    width: 10px;
+    height: 10px;
+    cursor: pointer; 
+}
+
+.Fileupload label {
+    position: absolute;
+    background-image: url('/static/視網膜圖片框框和下載.png');
+    /* background-image: url("/Users/hoyi/Downloads/視網膜圖片框框和下載.png"); */
+    background-size: 100% 100%;
+
+    width: 600px; 
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer; 
+    display: block;  
+}
+
+.Backgrounddirections{
+    position: absolute;
+    bottom: 180px;
+    right: 550px;
+    font-size: 25px;
+}
+
+.Mostdirections{
+    position: absolute;
+    bottom: 150px;
+    right: 610px;
+    font-size: 20px;
+}
+
+#Uploadedimage {
+    position: absolute;
+    top: 50%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+
+}
+
+.Againload0{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    height: 35px;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    cursor: pointer; /*變為手手*/
+}
+
+.Againload1{
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    height: 35px;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    cursor: pointer; /*變為手手*/
+}
+
+.Againload{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    height: 35px;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    cursor: pointer; /*變為手手*/
+}
+
+.Startread{
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    display: block; 
+    cursor: pointer; /*變為手手*/
+}
+
+.deleteButton {
+    position: relative;
+    background-color: #fff;
+    color: #ff0000;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 50%;
+    /* 保持下面的 top 和 right 屬性 */
+    right: 220px;
+}
+
+.deleteButton:hover {
+    background-color: #cc0000;
+}
+#UploadedImagesContainer1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 700px;
+    width: 800px;
+    overflow: auto;
+    padding-left: 20px; /* 為了使圖片靠左邊，我們在容器的左側添加一些內間距 */
+    padding-bottom: 100px;
+}
+#UploadedImagesContainer1 .imageWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1px;
+}
+#UploadedImagesContainer1 .newImage {
+    max-height: 200px;
+    max-width: 100%;
+}
+.Deletedirections{
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    height: 35px;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+
+}
+
+.page {
+    display: none;
+  }
+
+.active {
+    display: block;
+  }
+
+.pageContainer{
+    position: absolute;
+    top:650px;
+    left:150px;
+    font-size: 20px;
+    z-index: 3;
+  }
+.pagination{
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    font-size: 19.33px;
+    z-index: 3;
+  }
+.pagedirections{
+    position: absolute;
+    font-size: 25px;
+    top:-630px;
+    left:450px;
+    z-index: 3;
+  }
+
+  .Overlay{
+    position: relative;
+    background-color: rgb(231, 231, 231,1);
+    top:0px;
+    left:0px;
+    height: 830px;
+    width: 1440px;
+    z-index: 1;
+  }
+
+  .Overlaytop{
+    position: fixed;
+    height: 70px;
+    width: 1440px;
+    top:0px;
+    background-color: rgb(200, 197, 193,1);
+    z-index: 2;
+}
+.Uploadedimage{
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    top: -30%;
+    left: 9%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+.Resault{
+    position: absolute;
+    top: -400px; 
+    left: 850px;
+    transform: translate(-50%, -50%); 
+    font-size: 25px;
+    z-index: 3;
+}

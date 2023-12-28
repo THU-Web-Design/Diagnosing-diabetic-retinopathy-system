@@ -119,6 +119,16 @@ body, html {
     transform: translate(-50%, -50%);
     font-size: 15px;
     cursor: pointer; 
+}
+.Againload2{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    height: 30px;
+    width: 121px;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    cursor: pointer; 
 
 }
 

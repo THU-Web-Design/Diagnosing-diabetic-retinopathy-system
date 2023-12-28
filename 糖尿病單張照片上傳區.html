@@ -78,6 +78,15 @@
                 Linkelement2.classList.add('Againload1');
                 Leftbox.appendChild(Linkelement2);
 
+                Linkelement3 = document.createElement('input');
+                Linkelement3.type = "button";
+                Linkelement3.onclick = function() {
+                location.href = '/login1';
+                };
+                Linkelement3.value = '登出';
+                Linkelement3.classList.add('Againload2');
+                Leftbox.appendChild(Linkelement3);
+
                 top1.appendChild(Leftbox);
                 Leftboxes.push(Leftbox); 
             }

@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 
 app = Flask(__name__)
-model = load_model('/Users/hoyi/CGI/cgi-bin/CNNmodel1.h5')
+model = load_model('/Users/hoyi/CGI/cgi-bin/CNNmodel.h5')
 
 @app.route("/index", methods=['GET'])
 def index():
@@ -15,12 +15,10 @@ def index():
 def againload1():
     return render_template('糖尿病單張照片上傳區.html')
 
-@app.route("/twice", methods=['GET'])
-def twice():
-    return  render_template('糖尿病多張照片上傳區.html')
 
 @app.route("/startread1", methods=['POST'])
 def startread1():
+    # 從 request.files 中獲取檔案
     file = request.files['file']
 
     file_name_from_frontend = request.form.get('fileName', '')
@@ -36,6 +34,7 @@ def startread1():
     # print(prediction_class)
     return jsonify({'predicted_class': predicted_class})
 
-
 if __name__ == '__main__':
     app.run(debug=True)
+
+

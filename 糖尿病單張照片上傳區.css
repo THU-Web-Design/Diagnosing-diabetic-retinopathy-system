@@ -89,6 +89,7 @@ body, html {
     top: 50%;
     left: 18%;
     transform: translate(-50%, -50%);
+    border-radius: 5%;
 
 }
 #Imagename {
@@ -161,6 +162,7 @@ body, html {
     max-height: 100%;
     width: 500px;
     height: 500px;
+    border-radius: 5%;
 }
 
 #OverlayfileimageID {
@@ -198,11 +200,25 @@ body, html {
     font-size: 25px;
 }
 
-.Resaultdirections{
+.resultdirections{
     position: fixed;
     bottom: 0;
     right: 50px;
-    font-size: 18px;
-    font-size: 25px;
     font-size: 20px;
+}
+
+.Accuracy{
+    position: absolute;
+    top: 340px; 
+    left: 932px;
+    transform: translate(-50%, -50%); 
+    font-size: 25px;
+
+}
+.Loss{
+    position: absolute;
+    top: 380px; 
+    left: 907px;
+    transform: translate(-50%, -50%); 
+    font-size: 25px;
 }

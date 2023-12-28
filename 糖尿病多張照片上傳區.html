@@ -85,6 +85,7 @@
             }
         
         });
+        var validFiles = [];
         var uploadedFiles = [];
         Fileupload2 = document.getElementById('Fileupload1');
         UploadedImagesContainer1 = document.getElementById('UploadedImagesContainer1');
@@ -121,7 +122,7 @@
 
                 deleteButton.addEventListener('click', createDeleteHandler(file, newImage, Imagename, deleteButton));
 
-                uploadedFiles.push({ file: file, deleteButton: deleteButton });
+                uploadedFiles.push({ file: file, deleteButton: deleteButton, deleted: false });
 
                 var imageWrapper = document.createElement('div');
                 imageWrapper.classList.add('imageWrapper');
@@ -162,6 +163,7 @@
                     document.querySelector('.Background').style.display = 'none';
                     
                     var predclass = []
+                    var predAccuracy = []
                     // 分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁
                     var promises = [];
                     for (i = 0; i < files.length; i++) {
@@ -170,8 +172,8 @@
                         var formData = new FormData();
                         formData.append('file', file);
                         formData.append('fileName', fileName);
-                        formData.append('fileName', i);  // 传递图像ID
-                        // 使用 fetch 函数发送 POST 请求
+                        formData.append('fileName', i);  
+  
                         promises.push(fetch('/startread1', {
                             method: 'POST',
                             body: formData,
@@ -184,6 +186,7 @@
                             dataArray.sort((a, b) => a.id - b.id);
                             dataArray.forEach((data, i) => {
                                 predclass[i] = data.predicted_class;
+                                predAccuracy[i] = data.test_Accuracy;
                             });
                             createPages();
                         })
@@ -193,17 +196,21 @@
 
                         
                     var currentPage = 1;
-                    var totalPages = files.length;
+                    var totalPages = uploadedFiles.length;
 
-                    function createPages() {
+                     function createPages() {
                         // 生成分頁
+                        validFiles = uploadedFiles.filter(function (item) {
+                        return !item.deleted; });
                         var container = document.getElementById('pageContainer');
                         container.innerHTML = '';
                         for (var i = 1; i <= totalPages; i++) {
                             Uploadedimage = document.createElement('img');
                             Uploadedimage.className = 'Uploadedimage';
-                            Uploadedimage.src =URL.createObjectURL(files[i-1]);
 
+                            if (validFiles[i - 1] && validFiles[i - 1].file) {
+                            Uploadedimage.src = URL.createObjectURL(validFiles[i - 1].file);
+                            }
 
                             Overlay = document.createElement('div');
                             Overlay.className = 'Overlay';
@@ -218,19 +225,23 @@
                             
                             Resault = document.createElement('div');
                             Resault.className = 'Resault';
-                            Resault.innerText =  '病變分級預測結果: ' + predclass[i-1] + '級';
+                            Resault.innerText =  '病變分級預測結果: ' + predclass[i-1] + '級' + '\n模型準確率：約71%' + '\n損失值：2.0427';
+
+
 
                             var pageElement = document.createElement('div');
                             pageElement.className = 'page';
                             pageElement.innerText = '圖片名稱：  ' + fileNames[i-1];
                             
-                            container.appendChild(pageElement);
-                            container.appendChild(pagedirections);
-                            container.appendChild(Overlay);
-                            container.appendChild(Overlaytop);
-                            container.appendChild(Uploadedimage);
-                            container.appendChild(Resault);
-                        }
+                            if (uploadedFiles[i - 1] && !uploadedFiles[i - 1].deleted) {
+                                container.appendChild(pageElement);
+                                container.appendChild(pagedirections);
+                                container.appendChild(Overlay);
+                                container.appendChild(Overlaytop);
+                                container.appendChild(Uploadedimage);
+                                container.appendChild(Resault);
+                                }
+                            }
 
                         showPage(currentPage);
 
@@ -294,7 +305,9 @@
                 var index = uploadedFiles.findIndex(function (item) {
                     return item.file === file;
                 });
+                uploadedFiles[index].deleted = true;
                 uploadedFiles.splice(index, 1);
+
                 UploadedImagesContainer1.removeChild(newImage);
                 UploadedImagesContainer1.removeChild(Imagename);
                 UploadedImagesContainer1.removeChild(deleteButton);
@@ -307,15 +320,13 @@
                 {
                     window.location.href = '/twice';
                 }
+                var totalPages = uploadedFiles.length;
             };
         }
         document.querySelector('.Background').appendChild(UploadedImagesContainer1);
         function showFileDetails(file) {
             console.log(file.name);
         }
-
-        
-
     </script>
 </body>
 </html>

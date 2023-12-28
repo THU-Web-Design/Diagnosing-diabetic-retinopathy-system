@@ -37,7 +37,9 @@
                 <div id="overlaytoptext"></div>
             </div>
             <div id="result"></div>
-            <div id = "resaultdirections"></div>
+            <div id = "resultdirections"></div>
+            <div id = "Accuracy"></div>
+            <div id = "Loss"></div>
         </div>
        
     </div>
@@ -142,11 +144,23 @@
                     resault.classList.add('resault');
                     resault.id = 'resault';
                     
-                    resaultdirections = document.createElement('div');
-                    resaultdirections.classList.add('Resaultdirections');
-                    resaultdirections.id = 'resaultdirections';
-                    resaultdirections.textContent= '補充說明：無視網膜病變(0級)、輕度非增殖性視網膜病變(1級)、中等非增殖性視網膜病變(2級)、嚴重非增殖性視網膜病變(3級)、增殖性視網膜病變(4級)';
+                    resultdirections = document.createElement('div');
+                    resultdirections.classList.add('resultdirections');
+                    resultdirections.id = 'resultdirections';
+                    resultdirections.textContent= '補充說明：無視網膜病變(0級)、輕度非增殖性視網膜病變(1級)、中等非增殖性視網膜病變(2級)、嚴重非增殖性視網膜病變(3級)、增殖性視網膜病變(4級)';
                     
+                    Accuracy= document.createElement('div');
+                    Accuracy.classList.add('Accuracy');
+                    Accuracy.id = 'Accuracy';
+                    Accuracy.textContent= '模型準確率：約71%';
+
+                    Loss= document.createElement('div');
+                    Loss.classList.add('Loss');
+                    Loss.id = 'Loss';
+                    Loss.textContent= '損失值：2.0427';
+
+
+
                     fileName = file.name;
                     var formData = new FormData();
                     formData.append('file', file);
@@ -160,7 +174,7 @@
                     .then(response => response.json())
                     .then(data => {
                         console.log(data);
-                        resault.textContent = '病變分級預測結果: ' + data.predicted_class + '級';
+                        resault.textContent = '病變分級預測結果: ' + data.predicted_class + '\n級';
                     })
                     .catch((error) => {
                         console.error('Error:', error);
@@ -173,7 +187,9 @@
                     overlay.appendChild(Overlayfilepreview);
                     overlay.appendChild(overlaytoptext1);
                     overlay.appendChild(resault);
-                    overlay.appendChild(resaultdirections);
+                    overlay.appendChild(resultdirections);
+                    overlay.appendChild(Accuracy);
+                    overlay.appendChild(Loss);
 
                     overlay.style.display = 'block';
                     document.querySelector('.Overlay').style.display = 'block';

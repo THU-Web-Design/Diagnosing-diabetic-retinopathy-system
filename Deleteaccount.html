@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>樹葉</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Deleteaccount.css') }}"/>
+    <!-- <link rel="stylesheet" type="text/css" href="/Users/hoyi/CGI/cgi-bin/static/樹葉.css"/> -->
+</head>
+
+<body>
+    <div class="Background">
+        <div class="Top" id="Top1">
+            <form action="/Deleteaccount_successful" method="post" class = 'Account'>
+                <label>請輸入要刪除的帳號</label><input type="textbox" class="Grid" name="username" />
+                <label>請輸入要刪除的密碼</label><input type="password" class="Grid" name="password" />
+                <label>請輸入你喜歡的動物(創建帳號時填的)</label><input type="textbox" class="Grid" name="Like_animal" />
+                <input type="submit" class = "Submit"/>
+            </form>
+            
+        </div>
+        <div class="Backgroundbuttom">糖尿病視網膜病變系統</div>
+        <div class="Toptexts">刪除帳號</div>
+        <div class="Register"></div>
+    </div> 
+    <script>
+    </script>
+</body>
+</html>

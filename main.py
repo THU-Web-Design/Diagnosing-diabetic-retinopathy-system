@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 
 app = Flask(__name__)
-model = load_model('/Users/hoyi/CGI/cgi-bin/CNNmodel.h5')
+model = load_model('/Users/hoyi/CGI/cgi-bin/CNNmodel1.h5')
 
 @app.route("/index", methods=['GET'])
 def index():
@@ -36,7 +36,6 @@ def startread1():
     # print(prediction_class)
     return jsonify({'predicted_class': predicted_class})
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-
-

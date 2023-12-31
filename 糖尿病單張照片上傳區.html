@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>單張照片上傳區</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='糖尿病單張照片上傳區.css') }}"/>
+    <!-- <link rel="stylesheet" type="text/css" href="/Users/hoyi/CGI/cgi-bin/static/糖尿病單張照片上傳區.css"/> -->
+</head>
+
+<body>
+    <div class="Background">
+        <div class="Top" id="Top1">
+            <a href="#" class="Topimage" style="background-image: url('/static/視網膜圖片三條線1.png');"></a>
+            <!-- <a href="#" class="Topimage" style="background-image: url('/Users/hoyi/Downloads/視網膜圖片三條線1.png') ;"></a> -->
+            <div class="Toptext">單張照片上傳區</div>
+        </div>
+        <div class="Backgroundbuttom">糖尿病視網膜病變系統</div>
+        <div class="Backgrounddirections">點選虛線內選擇單張照片上傳</div>
+    </div> 
+    
+    <div class="Fileupload">
+        <input type="file" id="Fileupload1" accept=".png">
+        <label for="Fileupload1"></label>
+    </div>
+    
+    <img id="Uploadedimage">
+    <div id="Imagename"></div>
+    <div id="result"></div>
+    
+    <div class="Overlay" id="Overlay">
+        <div class="FilePreview">
+            <img src="" alt="File Image" id="Overlayfileimage">
+            <div id="OverlayfileimageID"></div>
+            <div id="overlaytop1">
+                <div id="overlaytoptext"></div>
+            </div>
+            <div id="result"></div>
+            <div id = "resultdirections"></div>
+            <div id = "Accuracy"></div>
+            <div id = "Loss"></div>
+        </div>
+       
+    </div>
+    <script>
+        topImage = document.querySelector('.Topimage');
+        top1 = document.getElementById('Top1');
+        Leftboxes = [];
+        //單張照片上傳區，彈出左邊匡格與單張照片上傳區，多張照片上傳區連結
+        topImage.addEventListener('click', function () {
+            if (Leftboxes.length > 0) {
+                for (var i = 0; i < Leftboxes.length; i++) {
+                    top1.removeChild(Leftboxes[i]);
+                }
+                Leftboxes = [];
+            } 
+            else {
+                Leftbox = document.createElement('div');
+                Leftbox.classList.add('Leftbox');
+
+                Linkelement1 = document.createElement('input');
+                Linkelement1.type = "button";
+                Linkelement1.onclick = function() {
+                location.href = '/againload1';
+                };
+                Linkelement1.value = '單張照片上傳區';
+                Linkelement1.classList.add('Againload0');
+                Leftbox.appendChild(Linkelement1);
+
+                Linkelement2 = document.createElement('input');
+                Linkelement2.type = "button";
+                Linkelement2.onclick = function() {
+                location.href = '/twice';
+                };
+                Linkelement2.value = '多張照片上傳區';
+                Linkelement2.classList.add('Againload1');
+                Leftbox.appendChild(Linkelement2);
+
+                Linkelement3 = document.createElement('input');
+                Linkelement3.type = "button";
+                Linkelement3.onclick = function() {
+                location.href = '/login1';
+                };
+                Linkelement3.value = '登出';
+                Linkelement3.classList.add('Againload2');
+                Leftbox.appendChild(Linkelement3);
+
+                top1.appendChild(Leftbox);
+                Leftboxes.push(Leftbox); 
+            }
+        });
+
+        Fileupload2 = document.getElementById('Fileupload1');
+        Uploadedimage = document.getElementById('Uploadedimage');
+        //顯示出上傳檔案的圖片與ID
+        Fileupload2.addEventListener('change', function () {
+            file = Fileupload2.files[0];
+            Reader = new FileReader();
+            var fileName = file.name;
+
+            Reader.onload = function (e) {
+                Uploadedimage.src = e.target.result;
+                Uploadedimage.style.width='500px';
+                Uploadedimage.style.height='500px';
+
+                Imagename = document.getElementById('Imagename');
+                Imagename.textContent = '圖片名稱: ' + file.name;
+  
+
+                document.querySelector('.Fileupload label').style.display = 'none';
+                document.querySelector('.Backgrounddirections').style.display = 'none';
+
+                Againload1 = document.createElement('input');
+                Againload1.type = "button";
+                Againload1.onclick = function() {
+                location.href = '/againload1';
+                };
+                Againload1.value = '重新上傳照片';
+                Againload1.classList.add('Againload');
+                document.querySelector('.Background').appendChild(Againload1);
+
+                //開始判讀並產生報告按鈕，覆蓋一個頁面
+                Startread1 = document.createElement('button');
+                Startread1.classList.add('Startread');
+                Startread1.textContent = '開始判讀並產生報告'; 
+                document.querySelector('.Background').appendChild( Startread1);
+                
+                
+                Startread1.addEventListener('click', function () {
+                    overlay = document.getElementById('Overlay');
+                    Overlayfilepreview = document.createElement('div');
+                    Overlayfilepreview.classList.add('FilePreview');
+                    
+                    Overlayfileimage = document.createElement('img');
+                    Overlayfileimage.src = e.target.result;
+                    Overlayfileimage.id = 'Overlayfileimage';
+
+                    OverlayfileimageID = document.createElement('div');
+                    OverlayfileimageID.id = 'OverlayfileimageID';
+                    OverlayfileimageID.textContent = '圖片ID: ' + file.name;
+                    
+                    overlaytop1 = document.createElement('div');
+                    overlaytop1.id = 'overlaytop1';
+                    
+                    overlaytoptext1 = document.createElement('div');
+                    overlaytoptext1.classList.add('Overlaytoptext');
+                    overlaytoptext1.id = 'overlaytoptext1';
+                    overlaytoptext1.textContent = '開始判讀並產生報告';
+
+                    resault = document.createElement('div');
+                    resault.classList.add('resault');
+                    resault.id = 'resault';
+                    
+                    resultdirections = document.createElement('div');
+                    resultdirections.classList.add('resultdirections');
+                    resultdirections.id = 'resultdirections';
+                    resultdirections.textContent= '補充說明：無視網膜病變(0級)、輕度非增殖性視網膜病變(1級)、中等非增殖性視網膜病變(2級)、嚴重非增殖性視網膜病變(3級)、增殖性視網膜病變(4級)';
+                    
+                    Accuracy= document.createElement('div');
+                    Accuracy.classList.add('Accuracy');
+                    Accuracy.id = 'Accuracy';
+                    Accuracy.textContent= '模型準確率：約71%';
+
+                    Loss= document.createElement('div');
+                    Loss.classList.add('Loss');
+                    Loss.id = 'Loss';
+                    Loss.textContent= '損失值：2.0427';
+
+
+
+                    fileName = file.name;
+                    var formData = new FormData();
+                    formData.append('file', file);
+                    formData.append('fileName', fileName);
+
+                    // 使用 fetch 函數發送POST請求
+                    fetch('/startread1', {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        resault.textContent = '病變分級預測結果: ' + data.predicted_class + '\n級';
+                    })
+
+                    Overlayfilepreview.appendChild(Overlayfileimage);
+                    Overlayfilepreview.appendChild(OverlayfileimageID);
+                    Overlayfilepreview.appendChild(overlaytop1);
+    
+                    overlay.appendChild(Overlayfilepreview);
+                    overlay.appendChild(overlaytoptext1);
+                    overlay.appendChild(resault);
+                    overlay.appendChild(resultdirections);
+                    overlay.appendChild(Accuracy);
+                    overlay.appendChild(Loss);
+
+                    overlay.style.display = 'block';
+                    document.querySelector('.Overlay').style.display = 'block';
+                    document.querySelector('.Background').style.display = 'none';
+                    
+                });
+            };
+            Reader.readAsDataURL(file);
+        });
+
+    </script>
+</body>
+</html>

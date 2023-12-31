@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pymssql://sa:Passw0rd@localhost/register'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pymssql://sa:#########@localhost/register'
 db = SQLAlchemy(app)
 
 #資料庫registers

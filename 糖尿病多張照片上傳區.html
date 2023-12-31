@@ -20,7 +20,6 @@
         <div class="Backgrounddirections">點選虛線內選擇多張照片上傳</div>
         <div class="Mostdirections">圖片總數不得超過100張</div>
     </div> 
-    
     <div class="Fileupload">
         <input type="file" id="Fileupload1" accept=".png" multiple>
         <label for="Fileupload1"></label>
@@ -28,15 +27,9 @@
     <div class="UploadedImagesContainer1">
         <div class="deleteButton"></div>
     </div>
-
-
     <div id="UploadedImagesContainer1"></div>
     <div class="Bigoverlay"></div>
-
-
-
     <div class="pageContainer" id="pageContainer">
-
     </div>
     <div class="Resault" id="'Resault"></div>
     <div class='Uploadedimage' img = 'Uploadedimage'></div>
@@ -57,7 +50,6 @@
                 }
                 Leftboxes = [];
             } 
-            
             else {
                 Leftbox = document.createElement('div');
                 Leftbox.classList.add('Leftbox');
@@ -94,11 +86,11 @@
             }
         
         });
-        var validFiles = [];
-        var uploadedFiles = [];
+        validFiles = [];
+        uploadedFiles = [];
         Fileupload2 = document.getElementById('Fileupload1');
         UploadedImagesContainer1 = document.getElementById('UploadedImagesContainer1');
-        var fileNames = [];
+        fileNames = [];
         Fileupload2.addEventListener('change', function () {
             files = Fileupload2.files;
 
@@ -133,7 +125,7 @@
 
                 uploadedFiles.push({ file: file, deleteButton: deleteButton, deleted: false });
 
-                var imageWrapper = document.createElement('div');
+                imageWrapper = document.createElement('div');
                 imageWrapper.classList.add('imageWrapper');
                 imageWrapper.appendChild(newImage);
                 imageWrapper.appendChild(Imagename);
@@ -171,7 +163,7 @@
 
                     document.querySelector('.Background').style.display = 'none';
                     
-                    var predclass = []
+                    predclass = []
                     var predAccuracy = []
                     // 分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁分頁
                     var promises = [];
@@ -181,7 +173,7 @@
                         var formData = new FormData();
                         formData.append('file', file);
                         formData.append('fileName', fileName);
-                        formData.append('fileName', i);  
+
   
                         promises.push(fetch('/startread1', {
                             method: 'POST',

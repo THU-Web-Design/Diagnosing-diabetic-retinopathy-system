@@ -55,7 +55,6 @@
                 }
                 Leftboxes = [];
             } 
-            
             else {
                 Leftbox = document.createElement('div');
                 Leftbox.classList.add('Leftbox');
@@ -175,7 +174,7 @@
                     formData.append('file', file);
                     formData.append('fileName', fileName);
 
-                    // 使用 fetch 函數發送 POST 請求
+                    // 使用 fetch 函數發送POST請求
                     fetch('/startread1', {
                         method: 'POST',
                         body: formData,
@@ -185,9 +184,6 @@
                         console.log(data);
                         resault.textContent = '病變分級預測結果: ' + data.predicted_class + '\n級';
                     })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
 
                     Overlayfilepreview.appendChild(Overlayfileimage);
                     Overlayfilepreview.appendChild(OverlayfileimageID);

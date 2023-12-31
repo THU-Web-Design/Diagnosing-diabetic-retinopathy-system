@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>樹葉</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}"/>
+    <!-- <link rel="stylesheet" type="text/css" href="/Users/hoyi/CGI/cgi-bin/static/樹葉.css"/> -->
+</head>
+
+<body>
+    <div class="Background">
+        <div class="Top" id="Top1">
+            <form action="/login" method="POST" class = 'Account'>
+                <label>帳號</label><input type="textbox" class="Grid" name="username" />
+                <label>密碼</label><input type="password" class="Grid" name="password" />
+                <input type="submit" class = "Submit"/>
+            </form>
+            
+        </div>
+        <div class="Backgroundbuttom">糖尿病視網膜病變系統</div>
+        <div class="Toptexts">請輸入帳號密碼登入</div>
+        <div class="Register"></div>
+        <div class="Findpassword"></div>
+        <div class="Deleteaccount"></div>
+    </div> 
+    <script>
+        Register = document.createElement('button');
+        Register.className = 'Register';
+        Register.textContent = '註冊新帳號';
+        Register.onclick = function() {
+            location.href = '/register';
+        };
+        document.querySelector('.Background').appendChild(Register);
+
+        Findpassword = document.createElement('button');
+        Findpassword.className = 'Findpassword';
+        Findpassword.textContent = '忘記密碼';
+        Findpassword.onclick = function() {
+            location.href = '/Findpassword';
+        };
+        document.querySelector('.Background').appendChild(Findpassword);
+
+        Deleteaccount = document.createElement('button');
+        Deleteaccount.className = 'Deleteaccount';
+        Deleteaccount.textContent = '刪除帳號';
+        Deleteaccount.onclick = function() {
+            location.href = '/Deleteaccount';
+        };
+        document.querySelector('.Background').appendChild(Deleteaccount);
+
+
+
+
+
+    </script>
+</body>
+</html>

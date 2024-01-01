@@ -1,6 +1,6 @@
 # 判斷糖尿病視網膜病變系統
 # templates：HTML
-# statics：css
+# static：css
 # main.py：後端
 
 

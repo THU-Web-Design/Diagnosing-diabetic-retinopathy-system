@@ -1,4 +1,4 @@
-<font size=7>判斷糖尿病視網膜病變系統</font>
+<font size=15>判斷糖尿病視網膜病變系統</font>
 # templates：HTML
 # static：css
 # main.py：後端

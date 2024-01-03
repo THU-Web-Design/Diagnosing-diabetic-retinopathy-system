@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>視網膜病變系統</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='糖尿病更多資訊.css') }}"/>
+    <!-- <link rel="stylesheet" type="text/css" href="/Users/hoyi/CGI/cgi-bin/static/糖尿病更多資訊.css"/> -->
+</head>
+
+<body>
+    <div class="Background" id ='Background'>
+        <div class="Top" id="Top1">
+            <a href="#" class="Topimage" style="background-image: url('/static/視網膜圖片三條線1.png');"></a>
+            <!-- <a href="#" class="Topimage" style="background-image: url('/Users/hoyi/Downloads/視網膜圖片三條線1.png') ;"></a> -->
+            
+        </div>
+        <div class="Backgroundbuttom">糖尿病視網膜病變系統</div>
+        <div class="Backgrounddirections">更多資訊</div>
+        <div class="index">
+        下方為CNN模型評估指標：<br>
+        1.準確率<br>
+        2.損失數<br>
+        3.混淆矩陣<br>
+        4.精確度<br>
+        5.召回率<br>
+        </div>
+
+        <div class="accurancy0">1.準確率：</div>
+        <div class="accurancy1">
+        準確率：73.53%<br>
+        表示模型正確預測的樣本佔測試集總體樣本的73.53%。<br>
+        </div>
+
+        <div class="loss0">2.損失率：</div>
+        <div class="loss1">
+        損失率：2.0434<br>
+        實際輸出和真實標籤之間的差異的度量。<br>
+        </div>
+
+        <div class="matrix0">3.混淆矩陣：</div>
+        <div class="matrix1">
+        [[342   7   7   0   0]<br>
+        [   9   36  25  2   4]<br>
+        [   18  25  137 6   11]<br>
+        [   3   1   21  9   9]<br>
+        [   7   4   32  3   15]]<br>
+        </div>
+
+        <div class="matrix2">
+        行表示實際類別，列表示模型預測的類別。<br>
+        例如：第一行表示實際為類別0的樣本，模型正確預測了342個，預測成了類別1的7個，預測成了<br>
+        類別2的7個，沒有預測成其他類別。<br>
+        </div>
+
+        <div class="precision0">4.精確率：</div>
+        <div class="precision1">
+        [0.90237467   0.49315068   0.61711712   0.45    0.38461538]<br>
+        </div>
+
+        <div class="precision2">
+            表示病變分級精確率：<br>
+            0級：90.23%<br>
+            1級：49.31%<br>
+            2級：61.71%<br>
+            3級：45%<br>
+            4級：38.46%<br>
+            平均精確率：56.94515%<br>
+            分別表示每個分級的精確度。例如，分級0的精確度為0.9023，表示模型在預測為分級0的情況下<br>
+            ，有90.23%的預測是正確的。
+            </div>
+
+        <div class="recall0">5.召回率：</div>
+         <div class="recall1">
+            [0.96067416 0.47368421 0.69543147 0.20930233 0.24590164]<br>
+         </div>
+    
+         <div class="recall2">
+            表示病變分級召回率：<br>
+            0級：96.06%<br>
+            1級：47.36%<br>
+            2級：69.54%<br>
+            3級：20.93%<br>
+            4級：24.59%<br>
+            平均精確率：51.69987%<br>
+            分別表示每個分級的召回率。例如，分級2的召回率為0.695，表示實際為分級2的樣本中，模型成功<br>
+            預測了69.5%。
+            </div>    
+
+    </div> 
+
+    <script>
+
+        topImage = document.querySelector('.Topimage');
+        top1 = document.getElementById('Top1');
+        Leftboxes = [];
+
+        topImage.addEventListener('click', function () {
+            if (Leftboxes.length > 0) {
+                for (var i = 0; i < Leftboxes.length; i++) {
+                    top1.removeChild(Leftboxes[i]);
+                }
+                Leftboxes = [];
+            } 
+            else {
+                Leftbox = document.createElement('div');
+                Leftbox.classList.add('Leftbox');
+
+                Linkelement1 = document.createElement('input');
+                Linkelement1.type = "button";
+                Linkelement1.onclick = function() {
+                location.href = '/againload1';
+                };
+                Linkelement1.value = '單張照片上傳區';
+                Linkelement1.classList.add('Againload0');
+                Leftbox.appendChild(Linkelement1);
+
+                Linkelement2 = document.createElement('input');
+                Linkelement2.type = "button";
+                Linkelement2.onclick = function() {
+                location.href = '/twice';
+                };
+                Linkelement2.value = '多張照片上傳區';
+                Linkelement2.classList.add('Againload1');
+                Leftbox.appendChild(Linkelement2);
+
+                Linkelement3 = document.createElement('input');
+                Linkelement3.type = "button";
+                Linkelement3.onclick = function() {
+                location.href = '/login1';
+                };
+                Linkelement3.value = '登出';
+                Linkelement3.classList.add('Againload2');
+                Leftbox.appendChild(Linkelement3);
+
+                top1.appendChild(Leftbox);
+                Leftboxes.push(Leftbox); 
+            }
+        });
+    </script>
+</body>
+</html>

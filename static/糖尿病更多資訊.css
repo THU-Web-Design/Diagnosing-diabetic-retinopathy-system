@@ -1,0 +1,227 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 2640px; 
+    overflow: auto;
+}
+
+.Top{
+    position: relative;
+    height: 70px;
+    width: 100%;
+    background-color: rgb(200, 197, 193,1);
+}
+
+.Background{
+    position: relative;
+    height:2640px;
+    width: 100%;
+    background-color: rgb(231, 231, 231,1);
+}
+
+.Topimage {
+    position: absolute;
+    top: 20px;
+    left: 50px; 
+    width: 25px; 
+    height: 25px;
+    background-size: 100% 100%;
+    cursor: pointer; /*變為手手*/
+}
+
+.Backgroundbuttom{
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    font-size: 18px;
+}
+
+.Leftbox {
+    width: 130px;
+    height:2555px;
+    background-color: rgb(200, 197, 193,1);
+    position: absolute;
+    top: 55px;
+    left: 0;
+    padding-top: 30px;
+    z-index: 1;
+}
+
+.Leftbox a {
+    display: block; 
+}
+
+.Againload0{
+    position: absolute;
+    top: 1.5%;
+    left: 50%;
+    height: 35px;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    cursor: pointer; 
+
+}
+.Againload1{
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    height: 35px;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    cursor: pointer; 
+}
+.Againload2{
+    position: absolute;
+    top: 4.5%;
+    left: 50%;
+    height: 30px;
+    width: 121px;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    cursor: pointer; 
+
+}
+
+.Backgrounddirections{
+    position: absolute;
+    top: 17px;
+    left: 670px;
+    font-size: 25px;
+}
+
+.Goback{
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    width: 100px;
+    height: 35px;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    cursor: pointer; 
+
+}
+.Loginout{
+    position: absolute;
+    top: 3.5%;
+    left: 50%;
+    width: 100px;
+    height: 30px;
+    
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    cursor: pointer; 
+
+}
+
+.index{
+    position: absolute;
+    left:100px;
+    top:100px;
+    font-size: 35px;
+}
+
+.accurancy0{
+    position: absolute;
+    left:100px;
+    top:450px;
+    font-size: 35px;
+
+}
+.accurancy1{
+    position: absolute;
+    left:100px;
+    top:500px;
+    font-size: 30px;
+
+}
+
+.loss0{
+    position: absolute;
+    left:100px;
+    top:650px;
+    font-size: 35px;
+
+}
+.loss1{
+    position: absolute;
+    left:100px;
+    top:700px;
+    font-size: 30px;
+
+}
+
+.matrix0{
+    position: absolute;
+    left:100px;
+    top:850px;
+    font-size: 35px;
+}
+
+.matrix1{
+    position: absolute;
+    left:-40px;
+    top:900px;
+    font-size: 30px;
+    font-family: monospace;
+    text-align: left;
+    white-space: pre;
+}
+
+.matrix2{
+    position: absolute;
+    left:100px;
+    top:1270px;
+    font-size: 30px;
+}
+
+.precision0{
+    position: absolute;
+    left:100px;
+    top:1470px;
+    font-size: 35px;
+
+}
+
+.precision1{
+    position: absolute;
+    left:-40px;
+    top:1500px;
+    font-size: 30px;
+    font-family: monospace;
+    text-align: left;
+    white-space: pre;
+}
+
+.precision2{
+    position: absolute;
+    left:100px;
+    top:1590px;
+    font-size: 30px;
+
+}
+
+.recall0{
+    position: absolute;
+    left:100px;
+    top:2050px;
+    font-size: 35px;
+
+}
+
+.recall1{
+    position: absolute;
+    left:-115px;
+    top:2080px;
+    font-size: 30px;
+    font-family: monospace;
+    text-align: left;
+    white-space: pre;
+}
+
+.recall2{
+    position: absolute;
+    left:100px;
+    top:2170px;
+    font-size: 30px;
+
+}

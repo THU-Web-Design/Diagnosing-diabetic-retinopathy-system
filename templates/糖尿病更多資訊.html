@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>視網膜病變系統</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='糖尿病更多資訊.css') }}"/>
-    <!-- <link rel="stylesheet" type="text/css" href="/Users/hoyi/CGI/cgi-bin/static/糖尿病更多資訊.css"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='糖尿病更多資訊.css') }}"/> -->
+    <link rel="stylesheet" type="text/css" href="/Users/hoyi/CGI/cgi-bin/static/糖尿病更多資訊.css"/>
 </head>
 
 <body>
     <div class="Background" id ='Background'>
         <div class="Top" id="Top1">
-            <a href="#" class="Topimage" style="background-image: url('/static/視網膜圖片三條線1.png');"></a>
-            <!-- <a href="#" class="Topimage" style="background-image: url('/Users/hoyi/Downloads/視網膜圖片三條線1.png') ;"></a> -->
+            <!-- <a href="#" class="Topimage" style="background-image: url('/static/視網膜圖片三條線1.png');"></a> -->
+            <a href="#" class="Topimage" style="background-image: url('/Users/hoyi/Downloads/視網膜圖片三條線1.png') ;"></a>
             
         </div>
         <div class="Backgroundbuttom">糖尿病視網膜病變系統</div>
@@ -25,6 +25,7 @@
         3.混淆矩陣<br>
         4.精確度<br>
         5.召回率<br>
+        6.分類報告<br>
         </div>
 
         <div class="accurancy0">1.準確率：</div>
@@ -87,6 +88,30 @@
             分別表示每個分級的召回率。例如，分級2的召回率為0.695，表示實際為分級2的樣本中，模型成功<br>
             預測了69.5%。
             </div>    
+
+        <div class="class0">6.分類報告：</div>
+        <div class="class1">
+        lassification Report:<br>
+                      precision  recall    f1-score   support<br>    
+                0       0.90      0.96      0.93        356<br>
+                1       0.49      0.47      0.48         76<br>
+                2       0.62      0.70      0.65        197<br>
+                3       0.45      0.21      0.29         43<br>
+                4       0.38      0.25      0.30         61<br>
+        accuracy                            0.74        733<br>
+        macro avg       0.57      0.52      0.53        733<br>
+        weighted avg    0.71      0.74      0.72        733<br>
+        </div>
+    
+        <div class="class2">
+            macro avg：計算所有類別的指標的平均。<br>
+            weighted avg：按照每個類別的樣本數加權計算的指標的平均值。<br>
+            support：每個類別的樣本數。這裡指測試集。<br>
+            precision（精確率）<br>
+            recall（招回率）<br>
+            f1-score（f1分數）：精確度和召回率的調和平均值。<br>
+            </div>    
+    
 
     </div> 
 

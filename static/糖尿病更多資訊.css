@@ -1,7 +1,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 2640px; 
+    height: 3800px; 
     overflow: auto;
 }
 
@@ -14,7 +14,7 @@ body, html {
 
 .Background{
     position: relative;
-    height:2640px;
+    height:3800px;
     width: 100%;
     background-color: rgb(231, 231, 231,1);
 }
@@ -110,27 +110,27 @@ body, html {
     transform: translate(-50%, -50%);
     font-size: 20px;
     cursor: pointer; 
-
 }
+
 
 .index{
     position: absolute;
     left:100px;
-    top:100px;
+    top:75px;
     font-size: 35px;
 }
 
 .accurancy0{
     position: absolute;
     left:100px;
-    top:450px;
+    top:460px;
     font-size: 35px;
 
 }
 .accurancy1{
     position: absolute;
     left:100px;
-    top:500px;
+    top:510px;
     font-size: 30px;
 
 }
@@ -222,6 +222,29 @@ body, html {
     position: absolute;
     left:100px;
     top:2170px;
+    font-size: 30px;
+
+}
+.class0{
+    position: absolute;
+    left:100px;
+    top:2650px;
+    font-size: 35px;
+
+}
+.class1{
+    position: absolute;
+    left:-40px;
+    top:2680px;
+    font-size: 30px;
+    font-family: monospace;
+    text-align: left;
+    white-space: pre;
+}
+.class2{
+    position: absolute;
+    left:100px;
+    top:3430px;
     font-size: 30px;
 
 }
